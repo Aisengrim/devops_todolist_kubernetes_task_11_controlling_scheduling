@@ -92,9 +92,10 @@ spec:
                       - todoapp
               topologyKey: "kubernetes.io/hostname"
         nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
                   - key: app
                     operator: In
                     values:
